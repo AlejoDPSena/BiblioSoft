@@ -17,6 +17,7 @@
                                                 <div class="card-body">
                                                     <div class="d-sm-flex justify-content-between align-items-start">
                                                         <div>
+                                                            <h4 class="card-title card-title-dash">Clientes</h4>
                                                             <form action="<?php echo URLROOT; ?>Cliente/search" method="POST">
                                                                 <div class="input-group mb-2 w-100">
                                                                     <input type="text" class="form-control form-control-sm " placeholder="Apellidos ..." aria-label="Recipient's username" aria-describedby="button-addon2" name="valor">

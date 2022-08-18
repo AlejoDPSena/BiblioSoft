@@ -7,9 +7,23 @@ class Libro extends Controller
         $this->LibroModel = $this->getModel('LibroModel');
     }
 
-    public function index()
+    public function index($currentPage = 1)
     {
         $data = $this->LibroModel->listar(); //temporal porque no hay
+        $perPage = 15;
+        $totalCount = $this->LibroModel->totalLibros();
+        $pagination = new Paginator($currentPage, $perPage, $totalCount);
+        $offset = $pagination->offset();
+        $libros = $this->LibroModel->totalPages($perPage, $offset);
+
+        $data = [
+            'libros' => $libros,
+            'previous' => $pagination->previous(),
+            'next' => $pagination->next(),
+            'total' => $pagination->totalPages(),
+            'currentPage' => $currentPage
+
+        ];
         $this->renderView('Libro/Libro', $data);
     }
 
@@ -110,6 +124,24 @@ class Libro extends Controller
             $this->renderView('Libro/Libro', $data);
         }
     }
+
+    public function search()
+    {
+        $data = [
+            "valor" => $_POST['valor']
+        ];
+
+        $data = $this->LibroModel->search($data);
+        $this->renderView('Libro/Libro', $data);
+    }
+
+    public function ImprimirListado()
+    {
+        $data = $this->LibroModel->getAll();
+        //$data = [];
+        $this->renderView('Libro/rptListadoLibros', $data);
+    }
+
     // public function formPenalizacion()
     // {
     //     $data = [];

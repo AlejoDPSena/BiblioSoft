@@ -7,9 +7,24 @@ class Editorial extends Controller
         $this->EditorialModel = $this->getModel('EditorialModel');
     }
 
-    public function index()
+    public function index($currentPage = 1)
     {
         $data = $this->EditorialModel->listar(); //temporal porque no hay
+        $perPage = 15;
+        $totalCount = $this->EditorialModel->totalEditoriales();
+        $pagination = new Paginator($currentPage, $perPage, $totalCount);
+        $offset = $pagination->offset();
+        $editoriales = $this->EditorialModel->totalPages($perPage, $offset);
+
+        $data = [
+            'editoriales' => $editoriales,
+            'previous' => $pagination->previous(),
+            'next' => $pagination->next(),
+            'total' => $pagination->totalPages(),
+            'currentPage' => $currentPage
+
+        ];
+        
         $this->renderView('Editorial/Editorial', $data);
     }
 
@@ -90,6 +105,23 @@ class Editorial extends Controller
             ];
             $this->renderView('Editorial/Editorial', $data);
         }
+    }
+
+    public function search()
+    {
+        $data = [
+            "valor" => $_POST['valor']
+        ];
+
+        $data = $this->EditorialModel->search($data);
+        $this->renderView('Editorial/Editorial', $data);
+    }
+
+    public function ImprimirListado()
+    {
+        $data = $this->EditorialModel->getAll();
+        //$data = [];
+        $this->renderView('Editorial/rptListadoEditoriales', $data);
     }
 
 }

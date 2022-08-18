@@ -64,4 +64,45 @@ class EditorialModel{
             return false;
         }
     }
+
+    public function totalEditoriales()
+    {
+        $this->db->query("SELECT COUNT(idEditorial) as numevents FROM editorial");
+        $resultSet = $this->db->getOne();
+        return  $resultSet;
+    }
+
+    /**
+     * totalPages
+     * devuelve el total de paginas de acuerdo al limite y al offset
+     * @param  mixed $perPage
+     * @param  mixed $offset
+     * @return void
+     */
+    public function totalPages($perPage, $offset)
+    {
+        $this->db->query("SELECT * from editorial ORDER BY idEditorial ASC LIMIT :limit OFFSET :offset");
+        $this->db->bind(":limit", $perPage);
+        $this->db->bind(":offset", $offset);
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
+
+    //buscar por apellido
+    public function search($data)
+    {
+        $this->db->query("SELECT * FROM editorial WHERE nombreEditorial LIKE CONCAT(:nombreEditorial,'%')");
+        $valor = $data['valor'];
+        $this->db->bind(':nombreEditorial', $valor);
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
+
+    public function getAll()
+    {
+        $this->db->query("SELECT * FROM editorial");
+        $resultSet = $this->db->getAll();
+        // $resultSet = json_encode($resultSet);
+        return $resultSet;
+    }
 }

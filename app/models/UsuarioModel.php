@@ -65,4 +65,45 @@ class UsuarioModel{
             return false;
         }
     }
+
+    public function totalUsuarios()
+    {
+        $this->db->query("SELECT COUNT(idUsuario) as numevents FROM usuario");
+        $resultSet = $this->db->getOne();
+        return  $resultSet;
+    }
+
+    /**
+     * totalPages
+     * devuelve el total de paginas de acuerdo al limite y al offset
+     * @param  mixed $perPage
+     * @param  mixed $offset
+     * @return void
+     */
+    public function totalPages($perPage, $offset)
+    {
+        $this->db->query("SELECT usuario.idUsuario,usuario.nombre1Usuario,usuario.nombre2Usuario,usuario.apellido1Usuario,usuario.apellido2Usuario,usuario.telefonoUsuario,usuario.emailUsuario,usuario.usuarioUsuario,rol.nombreRol from usuario INNER JOIN rol on usuario.Rol_idRol = rol.idRol ORDER BY idUsuario ASC LIMIT :limit OFFSET :offset");
+        $this->db->bind(":limit", $perPage);
+        $this->db->bind(":offset", $offset);
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
+
+    //buscar por apellido
+    public function search($data)
+    {
+        $this->db->query("SELECT usuario.idUsuario,usuario.nombre1Usuario,usuario.nombre2Usuario,usuario.apellido1Usuario,usuario.apellido2Usuario,usuario.telefonoUsuario,usuario.emailUsuario,usuario.usuarioUsuario,rol.nombreRol FROM usuario INNER JOIN rol on usuario.Rol_idRol = rol.idRol WHERE nombre1Usuario LIKE CONCAT(:nombreUsuario,'%')");
+        $valor = $data['valor'];
+        $this->db->bind(':nombreUsuario', $valor);
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
+
+    public function getAll()
+    {
+        $this->db->query("SELECT usuario.idUsuario,usuario.nombre1Usuario,usuario.nombre2Usuario,usuario.apellido1Usuario,usuario.apellido2Usuario,usuario.telefonoUsuario,usuario.emailUsuario,usuario.passwordUsuario,usuario.usuarioUsuario,rol.nombreRol FROM usuario INNER JOIN rol on usuario.Rol_idRol = rol.idRol");
+        $resultSet = $this->db->getAll();
+        // $resultSet = json_encode($resultSet);
+        return $resultSet;
+    }
 }

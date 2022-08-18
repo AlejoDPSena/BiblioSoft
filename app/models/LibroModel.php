@@ -78,4 +78,45 @@ class LibroModel{
             return false;
         }
     }
+
+    public function totalLibros()
+    {
+        $this->db->query("SELECT COUNT(idLibro) as numevents FROM libro");
+        $resultSet = $this->db->getOne();
+        return  $resultSet;
+    }
+
+    /**
+     * totalPages
+     * devuelve el total de paginas de acuerdo al limite y al offset
+     * @param  mixed $perPage
+     * @param  mixed $offset
+     * @return void
+     */
+    public function totalPages($perPage, $offset)
+    {
+        $this->db->query("SELECT idLibro,nombreLibro,categoriaLibro,autorLibro,cantidadLibro,detallesLibro,publicacionLibro,Editorial_idEditorial,nombreEditorial from libro INNER JOIN Editorial on Libro.Editorial_idEditorial = Editorial.idEditorial ORDER BY idLibro ASC LIMIT :limit OFFSET :offset");
+        $this->db->bind(":limit", $perPage);
+        $this->db->bind(":offset", $offset);
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
+
+    //buscar por apellido
+    public function search($data)
+    {
+        $this->db->query("SELECT * FROM libro WHERE nombreLibro LIKE CONCAT(:nombreLibro,'%')");
+        $valor = $data['valor'];
+        $this->db->bind(':nombreLibro', $valor);
+        $resultSet = $this->db->getAll();
+        return $resultSet;
+    }
+
+    public function getAll()
+    {
+        $this->db->query("SELECT idLibro,nombreLibro,categoriaLibro,autorLibro,cantidadLibro,detallesLibro,publicacionLibro,Editorial_idEditorial,nombreEditorial FROM libro INNER JOIN Editorial on Libro.Editorial_idEditorial = Editorial.idEditorial;");
+        $resultSet = $this->db->getAll();
+        // $resultSet = json_encode($resultSet);
+        return $resultSet;
+    }
 }

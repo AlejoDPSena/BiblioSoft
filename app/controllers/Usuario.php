@@ -8,9 +8,23 @@ class Usuario extends Controller
         $this->RolModel = $this->getModel('RolModel');
     }
 
-    public function index()
+    public function index($currentPage = 1)
     {
         $data = $this->UsuarioModel->listar(); //temporal porque no hay
+        $perPage = 15;
+        $totalCount = $this->UsuarioModel->totalUsuarios();
+        $pagination = new Paginator($currentPage, $perPage, $totalCount);
+        $offset = $pagination->offset();
+        $usuarios = $this->UsuarioModel->totalPages($perPage, $offset);
+
+        $data = [
+            'usuarios' => $usuarios,
+            'previous' => $pagination->previous(),
+            'next' => $pagination->next(),
+            'total' => $pagination->totalPages(),
+            'currentPage' => $currentPage
+
+        ];
         $this->renderView('Usuario/Usuario', $data);
     }
     public function formAdd(){
@@ -90,5 +104,22 @@ class Usuario extends Controller
             ];
             $this->renderView('Usuario/editarUsuario', $data);
         }
+    }
+
+    public function search()
+    {
+        $data = [
+            "valor" => $_POST['valor']
+        ];
+
+        $data = $this->UsuarioModel->search($data);
+        $this->renderView('Usuario/Usuario', $data);
+    }
+
+    public function ImprimirListado()
+    {
+        $data = $this->UsuarioModel->getAll();
+        //$data = [];
+        $this->renderView('Usuario/rptListadoUsuarios', $data);
     }
 }
