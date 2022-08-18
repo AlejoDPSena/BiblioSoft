@@ -9,7 +9,7 @@ class RolModel{
     }
 
     public function listarRol(){
-        $this->db->query("SELECT nombreRol FROM rol");
+        $this->db->query("SELECT idRol, nombreRol FROM rol");
         $resultSet = $this->db->getAll();
         return $resultSet;
     }

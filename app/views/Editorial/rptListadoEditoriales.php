@@ -11,6 +11,7 @@ $pdf = new PDF_MC_Table();
 
 //Agregamos la primera página al documento pdf
 $pdf->AddPage();
+$pdf->AliasNbPages();
 
 //Seteamos el inicio del margen superior en 25 pixeles 
 $y_axis_initial = 25;

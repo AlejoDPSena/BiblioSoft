@@ -11,6 +11,7 @@ $pdf = new PDF_MC_Table();
 
 //Agregamos la primera página al documento pdf
 $pdf->AddPage();
+$pdf->AliasNbPages();
 
 //Seteamos el inicio del margen superior en 25 pixeles 
 $y_axis_initial = 25;
@@ -41,7 +42,7 @@ $pdf->SetWidths(array(40, 23, 40, 20, 40, 25));
 //48
 $contador = 0;
 foreach ($data as $usuario) {
-    if($contador==48):
+    if ($contador == 48) :
         $pdf->SetFont('Arial', 'B', 12);
         $pdf->Cell(100, 6,  SITENAME, 0, 1, 'C');
         $pdf->Cell(100, 6, 'USUARIOS ', 0, 1, 'C');
@@ -56,18 +57,20 @@ foreach ($data as $usuario) {
         $pdf->Cell(25, 6, utf8_decode('Rol'), 1, 0, 'C', 1);
         $pdf->Ln(10);
         $pdf->SetWidths(array(40, 23, 40, 20, 40, 25));
-        $contador=0;
+        $contador = 0;
     endif;
     #$nombre = $reg->nombre;
-    $nombre = $usuario->nombre1Usuario.' '.$usuario->nombre2Usuario.' '.$usuario->apellido1Usuario.' '.$usuario->apellido2Usuario;
+    $nombre = $usuario->nombre1Usuario . ' ' . $usuario->nombre2Usuario . ' ' . $usuario->apellido1Usuario . ' ' . $usuario->apellido2Usuario;
     $telefono = $usuario->telefonoUsuario;
     $email = $usuario->emailUsuario;
-    $usuario = $usuario->usuarioUsuario;
+    $usuario1 = $usuario->usuarioUsuario;
+    $password = $usuario->passwordUsuario;
+    $nombreRol = $usuario->nombreRol;
     /* $password = $usuario->passwordUsuario;
     $rol = $usuario->nombreRol; */
-    
+
     $pdf->SetFont('Arial', '', 10);
-    $pdf->Row(array($nombre, $telefono, $email, $usuario));
+    $pdf->Row(array($nombre, $telefono, $email, $usuario1, $password, $nombreRol));
     $contador += 1;
 };
 

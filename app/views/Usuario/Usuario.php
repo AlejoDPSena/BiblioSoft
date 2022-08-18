@@ -79,7 +79,7 @@
                                                                             <td>
                                                                                 <h6><?php echo $usuario->emailUsuario; ?></h6>
                                                                             </td>
-                                                                            <td><a href="<?php echo URLROOT; ?>Usuario/update/<?php echo $cliente->idCliente;  ?>">
+                                                                            <td><a href="<?php echo URLROOT; ?>Usuario/update/<?php echo $usuario->idUsuario;  ?>">
                                                                                     <div class="badge badge-opacity-info"><?php echo $usuario->nombreRol; ?></div>
                                                                                 </a></td>
                                                                             <td><a href="<?php echo URLROOT; ?>Usuario/update/<?php echo $usuario->idUsuario;  ?>">

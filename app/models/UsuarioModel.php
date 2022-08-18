@@ -16,7 +16,7 @@ class UsuarioModel{
 
     public function getOne($id)
     {
-        $this->db->query("SELECT * FROM usuario where idUsuario =:id");
+        $this->db->query("SELECT * FROM usuario INNER JOIN rol on usuario.Rol_idRol = rol.idRol where idUsuario =:id");
         $this->db->bind(':id', $id);
         $resultSet = $this->db->getOne();
         return $resultSet;

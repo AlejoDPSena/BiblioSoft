@@ -63,9 +63,10 @@
                                                                     <div class="col-sm-9">
                                                                         <select name="Rol_idRol" id="disabledSelect" class="form-select">
                                                                             <?php
+                                                                          
                                                                             $contador = 1;
-                                                                            foreach ($data as $rol) :; ?>
-                                                                                <option value="<?php echo $contador; ?>"><?php echo $rol->nombreRol; ?></option>
+                                                                            foreach ($data["nombreRol"] as $rol) :; ?>
+                                                                                <option value="<?php echo $rol->idRol; ?>"><?php echo $rol->nombreRol; ?></option>
                                                                             <?php
                                                                                 $contador = $contador + 1;
                                                                             endforeach; ?>

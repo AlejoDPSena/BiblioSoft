@@ -33,8 +33,9 @@ class Usuario extends Controller
     }
 
     public function formUpdate(){
-        $data = $this->RolModel->listarRol();  //temporal porque no hay data
-        $this->renderView('Usuario/editarUsuario', $data);
+        $data = $this->RolModel->listarRol(); 
+        var_dump($data); //temporal porque no hay data
+        /* $this->renderView('Usuario/editarUsuario', $data); */
     }
 
     public function addUser()
@@ -90,6 +91,7 @@ class Usuario extends Controller
                 die('ocurrió un error en la edicición!');
             };
         } else {
+            $dataRol = $this->RolModel->listarRol();
             $usuario = $this->UsuarioModel->getOne($id);
             $data = [
                 'idUsuario' => $usuario->idUsuario,
@@ -101,6 +103,7 @@ class Usuario extends Controller
                 'emailUsuario' => $usuario->emailUsuario,
                 'usuarioUsuario' => $usuario->usuarioUsuario,
                 'Rol_idRol' => $usuario->Rol_idRol,
+                'nombreRol' => $dataRol
             ];
             $this->renderView('Usuario/editarUsuario', $data);
         }
