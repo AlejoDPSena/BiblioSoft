@@ -70,8 +70,7 @@ error_reporting(0);
               <i class="bi bi-person-circle"></i> </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
-                <img class="img-md rounded-circle" src="images/faces/face8.jpg" alt="Profile image">
-                <p class="mb-1 mt-3 font-weight-semibold"><?php echo $_SESSION['nombre1Usuario'].' '.$_SESSION['nombre2Usuario'].' '.$_SESSION['apellido1Usuario'].' '.$_SESSION['apellido2Usuario'];?></p>
+                <p class="mb-1 mt-3 font-weight-semibold"></p>
                 <p class="fw-light text-muted mb-0">andrewDuque@gmail.com</p>
               </div>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> Mi Perfil <span class="badge badge-pill badge-danger">1</span></a>
