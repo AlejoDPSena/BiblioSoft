@@ -131,4 +131,33 @@
         </div>
     </div>
 
+        <!-- plugins:js -->
+    <script src="<?php echo URLROOT ?>vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="<?php echo URLROOT ?>vendors/chart.js/Chart.min.js"></script>
+    <script src="<?php echo URLROOT ?>vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="<?php echo URLROOT ?>vendors/progressbar.js/progressbar.min.js"></script>
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="<?php echo URLROOT ?>js/off-canvas.js"></script>
+    <script src="<?php echo URLROOT ?>js/hoverable-collapse.js"></script>
+    <script src="<?php echo URLROOT ?>js/template.js"></script>
+    <script src="<?php echo URLROOT ?>js/settings.js"></script>
+    <script src="<?php echo URLROOT ?>js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <!-- <script src="js/jquery.cookie.js" type="text/javascript"></script> -->
+    <script src="<?php echo URLROOT ?>js/dashboard.js"></script>
+    <script src="<?php echo URLROOT ?>js/Chart.roundedBarCharts.js"></script>
+    <!-- script bootstrap5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <!-- End custom js for this page-->
+
+    <!-- Data tables -->
+    <script src="<?php echo URLROOT ?>jQuery-3.6.0/jquery-3.6.0.min.js"></script>
+    <script src="<?php echo URLROOT ?>DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+
+
     <?php require_once APPROOT . '/views/inc/footer.php'; ?>

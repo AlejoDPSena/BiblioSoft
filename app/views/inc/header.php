@@ -11,6 +11,7 @@ error_reporting(0);
   <title>BiblioSofts</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>DataTables-1.12.1/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>vendors/feather/feather.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>vendors/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="<?php echo URLROOT; ?>vendors/ti-icons/css/themify-icons.css">
