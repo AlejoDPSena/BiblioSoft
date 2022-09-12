@@ -31,7 +31,7 @@ class Editorial extends Controller
     /**
      * dataTable
      * Devuelve la data en un objeto json, necesario para que javascript lo pueda leer y pueda manipular en frontend
-     * 
+     * @return void
      */
     public function dataTable()
     {

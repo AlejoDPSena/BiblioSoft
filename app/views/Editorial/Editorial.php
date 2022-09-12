@@ -17,13 +17,7 @@
                                                 <div class="card-body">
                                                     <div class="d-sm-flex justify-content-between align-items-start">
                                                         <div>
-                                                            <h4 class="card-title card-title-dash">Editoriales</h4>
-                                                            <form action="<?php echo URLROOT; ?>Editorial/search" method="POST">
-                                                                <div class="input-group mb-2 w-100">
-                                                                    <input type="text" class="form-control form-control-sm " placeholder="Nombre..." aria-label="Recipient's username" aria-describedby="button-addon2" name="valor">
-                                                                    <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
-                                                                </div>
-                                                            </form>
+                                                            <h4 class="card-title card-title-dash mb-3">Editoriales</h4>
                                                             <a class="btn btn-success btn-sm" href="<?php echo URLROOT; ?>Editorial/ImprimirListado"><i class="bi bi-printer"></i></a></small>
                                                         </div>
                                                         <div>

@@ -7,9 +7,9 @@ class Libro extends Controller
         $this->LibroModel = $this->getModel('LibroModel');
     }
 
-    public function index($currentPage = 1)
+    public function index()
     {
-        $data = $this->LibroModel->listar(); //temporal porque no hay
+        /* $data = $this->LibroModel->listar(); //temporal porque no hay
         $perPage = 15;
         $totalCount = $this->LibroModel->totalLibros();
         $pagination = new Paginator($currentPage, $perPage, $totalCount);
@@ -23,8 +23,20 @@ class Libro extends Controller
             'total' => $pagination->totalPages(),
             'currentPage' => $currentPage
 
-        ];
+        ]; */
+        $data = [];
         $this->renderView('Libro/Libro', $data);
+    }
+
+    /**
+     * dataTable
+     * Devuelve la data en un objeto json, necesario para que javascript lo pueda leer y pueda manipular en frontend
+     * @return void
+     */
+    public function dataTable()
+    {
+        $data = $this->LibroModel->listar(); //temporal porque no hay
+        echo json_encode($data);
     }
 
     public function formUpdateBook($id)
