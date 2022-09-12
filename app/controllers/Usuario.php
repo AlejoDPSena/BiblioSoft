@@ -8,25 +8,27 @@ class Usuario extends Controller
         $this->RolModel = $this->getModel('RolModel');
     }
 
-    public function index($currentPage = 1)
+    public function index()
     {
-        $data = $this->UsuarioModel->listar(); //temporal porque no hay
-        $perPage = 15;
-        $totalCount = $this->UsuarioModel->totalUsuarios();
-        $pagination = new Paginator($currentPage, $perPage, $totalCount);
-        $offset = $pagination->offset();
-        $usuarios = $this->UsuarioModel->totalPages($perPage, $offset);
+        // $data = $this->UsuarioModel->listar(); //temporal porque no hay
+        // $perPage = 15;
+        // $totalCount = $this->UsuarioModel->totalUsuarios();
+        // $pagination = new Paginator($currentPage, $perPage, $totalCount);
+        // $offset = $pagination->offset();
+        // $usuarios = $this->UsuarioModel->totalPages($perPage, $offset);
 
-        $data = [
-            'usuarios' => $usuarios,
-            'previous' => $pagination->previous(),
-            'next' => $pagination->next(),
-            'total' => $pagination->totalPages(),
-            'currentPage' => $currentPage
+        // $data = [
+        //     'usuarios' => $usuarios,
+        //     'previous' => $pagination->previous(),
+        //     'next' => $pagination->next(),
+        //     'total' => $pagination->totalPages(),
+        //     'currentPage' => $currentPage
 
-        ];
+        // ];
+        $data = [];
         $this->renderView('Usuario/Usuario', $data);
     }
+    
     public function formAdd(){
         $data = $this->RolModel->listarRol();  //temporal porque no hay data
         $this->renderView('Usuario/nuevoUsuario', $data);
@@ -124,5 +126,16 @@ class Usuario extends Controller
         $data = $this->UsuarioModel->getAll();
         //$data = [];
         $this->renderView('Usuario/rptListadoUsuarios', $data);
+    }
+    
+    /**
+     * datatable
+     * Devuelve la data en formato json # necesario para que js lo capture y lo manipule en el Front.
+     * @return void
+     */
+    public function datatable()
+    {
+        $usuario = $this->UsuarioModel->getTable();
+        echo json_encode($usuario);
     }
 }

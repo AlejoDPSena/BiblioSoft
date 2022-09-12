@@ -106,4 +106,12 @@ class UsuarioModel{
         // $resultSet = json_encode($resultSet);
         return $resultSet;
     }
+
+    public function getTable()
+    {
+        $this->db->query("SELECT usuario.idUsuario,usuario.nombre1Usuario,usuario.nombre2Usuario,usuario.apellido1Usuario,usuario.apellido2Usuario,usuario.telefonoUsuario,usuario.emailUsuario,usuario.passwordUsuario,usuario.usuarioUsuario,rol.nombreRol FROM usuario INNER JOIN rol on usuario.Rol_idRol = rol.idRol");
+        $resultSet = $this->db->getAll();
+        // $resultSet = json_encode($resultSet);
+        return $resultSet;
+    }
 }

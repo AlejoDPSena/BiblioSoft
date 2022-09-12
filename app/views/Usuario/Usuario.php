@@ -31,66 +31,30 @@
                                                         </div>
                                                     </div>
                                                     <div class="table-responsive  mt-1">
-                                                        <table class="table select-table">
+                                                        <table class="table select-table" id="tblUsuario">
                                                             <thead>
                                                                 <tr>
-                                                                    <th>
+                                                                    <!-- <th>
                                                                         <div class="form-check form-check-flat mt-0">
                                                                             <label class="form-check-label">
                                                                                 <input type="checkbox" disabled class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
                                                                         </div>
-                                                                    </th>
+                                                                    </th> -->
                                                                     <th>Id</th>
-                                                                    <th>Usuario</th>
+                                                                    <th>nombre1</th>
+                                                                    <th>nombre2</th>
+                                                                    <th>apellido1</th>
+                                                                    <th>apellido2</th>
                                                                     <th>Teléfono</th>
                                                                     <th>Email</th>
                                                                     <th>Rol</th>
-                                                                    <th>Editar</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <?php foreach ($data as $index => $fila) :; ?>
-                                                                    <?php foreach ($fila as $index2 => $usuario) :; ?>
-                                                                        <tr>
-                                                                            <td>
-                                                                                <div class="form-check form-check-flat mt-0">
-                                                                                    <label class="form-check-label">
-                                                                                        <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                <div class="d-flex">
-                                                                                    <div>
-                                                                                        <h6><?php echo $usuario->idUsuario; ?></h6>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                <div class="d-flex">
-                                                                                    <div>
-                                                                                        <h6><?php echo $usuario->nombre1Usuario . ' ' . $usuario->nombre2Usuario . ' ' . $usuario->apellido1Usuario . ' ' . $usuario->apellido2Usuario; ?></h6>
-                                                                                        <p><?php echo $usuario->usuarioUsuario; ?></p>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </td>
-                                                                            <td>
-                                                                                <h6><?php echo $usuario->telefonoUsuario; ?></h6>
-                                                                            </td>
-                                                                            <td>
-                                                                                <h6><?php echo $usuario->emailUsuario; ?></h6>
-                                                                            </td>
-                                                                            <td><a href="<?php echo URLROOT; ?>Usuario/update/<?php echo $usuario->idUsuario;  ?>">
-                                                                                    <div class="badge badge-opacity-info"><?php echo $usuario->nombreRol; ?></div>
-                                                                                </a></td>
-                                                                            <td><a href="<?php echo URLROOT; ?>Usuario/update/<?php echo $usuario->idUsuario;  ?>">
-                                                                                    <div class="badge badge-opacity-primary">Editar</div>
-                                                                                </a></td>
-                                                                        </tr>
-                                                                    <?php endforeach ?>
-                                                                <?php endforeach ?>
+                                                                
                                                             </tbody>
                                                         </table>
-                                                        <nav aria-label="Page navigation example">
+                                                        <!-- <nav aria-label="Page navigation example">
                                                             <ul class="pagination">
                                                                 <li class="page-item"><a class="page-link" href="<?php echo $data["previous"]; ?>">Previo</a></li>
                                                                 <?php for ($index = 1; $index <= $data['total']; $index++) : ?>
@@ -100,7 +64,7 @@
                                                                 <?php endfor; ?>
                                                                 <li class="page-item"><a class="page-link" href=" <?php echo URLROOT; ?>Usuario/<?php echo $data["next"]; ?>">Siguiente</a></li>
                                                             </ul>
-                                                        </nav>
+                                                        </nav> -->
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,5 +106,6 @@
     <!-- Data tables -->
     <script src="<?php echo URLROOT ?>jQuery-3.6.0/jquery-3.6.0.min.js"></script>
     <script src="<?php echo URLROOT ?>DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo URLROOT ?>js/usuario.js"></script>
 
     <?php require_once APPROOT . '/views/inc/footer.php'; ?>
