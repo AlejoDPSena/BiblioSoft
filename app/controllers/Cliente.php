@@ -7,24 +7,24 @@ class Cliente extends Controller
         $this->ClienteModel = $this->getModel('ClienteModel');
     }
 
-    public function index($currentPage = 1)
+    public function index()
     {
-        $data = $this->ClienteModel->listar(); //temporal porque no hay
-        $perPage = 15;
-        $totalCount = $this->ClienteModel->totalClientes();
-        $pagination = new Paginator($currentPage, $perPage, $totalCount);
-        $offset = $pagination->offset();
-        $clientes = $this->ClienteModel->totalPages($perPage, $offset);
+        // $data = $this->ClienteModel->listar(); //temporal porque no hay
+        // $perPage = 15;
+        // $totalCount = $this->ClienteModel->totalClientes();
+        // $pagination = new Paginator($currentPage, $perPage, $totalCount);
+        // $offset = $pagination->offset();
+        // $clientes = $this->ClienteModel->totalPages($perPage, $offset);
 
-        $data = [
-            'clientes' => $clientes,
-            'previous' => $pagination->previous(),
-            'next' => $pagination->next(),
-            'total' => $pagination->totalPages(),
-            'currentPage' => $currentPage
+        // $data = [
+        //     'clientes' => $clientes,
+        //     'previous' => $pagination->previous(),
+        //     'next' => $pagination->next(),
+        //     'total' => $pagination->totalPages(),
+        //     'currentPage' => $currentPage
 
-        ];
-
+        // ];
+        $data = [];
         $this->renderView('Cliente/Cliente', $data);
     }
 
@@ -165,5 +165,16 @@ class Cliente extends Controller
         $data = $this->ClienteModel->getAll();
         //$data = [];
         $this->renderView('Cliente/rptListadoClientes', $data);
+    }
+    
+    /**
+     * datatable
+     * Llamamos los datos del modelo y los convertimos en formato json para luego ser consumidos en js en el front
+     * @return void
+     */
+    public function datatable()
+    {
+        $cliente = $this->ClienteModel->getTable();
+        echo json_encode($cliente);
     }
 }

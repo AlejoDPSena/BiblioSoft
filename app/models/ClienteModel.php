@@ -115,4 +115,17 @@ class ClienteModel{
         // $resultSet = json_encode($resultSet);
         return $resultSet;
     }
+    
+    /**
+     * getTable
+     * Llamamos los campos que deseamos mostrar en la tabla cliente
+     * @return void
+     */
+    public function getTable()
+    {
+        $this->db->query("SELECT idCliente,nombreCliente,apellidoCliente,telefonoCliente,estadoCliente FROM Cliente");
+        $resultSet = $this->db->getAll();
+        // $resultSet = json_encode($resultSet);
+        return $resultSet;
+    }
 }
