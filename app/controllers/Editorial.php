@@ -7,9 +7,9 @@ class Editorial extends Controller
         $this->EditorialModel = $this->getModel('EditorialModel');
     }
 
-    public function index($currentPage = 1)
+    public function index()
     {
-        $data = $this->EditorialModel->listar(); //temporal porque no hay
+        /* $data = $this->EditorialModel->listar(); //temporal porque no hay
         $perPage = 15;
         $totalCount = $this->EditorialModel->totalEditoriales();
         $pagination = new Paginator($currentPage, $perPage, $totalCount);
@@ -23,9 +23,20 @@ class Editorial extends Controller
             'total' => $pagination->totalPages(),
             'currentPage' => $currentPage
 
-        ];
-        
+        ]; */
+        $data = [];
         $this->renderView('Editorial/Editorial', $data);
+    }
+    
+    /**
+     * dataTable
+     * Devuelve la data en un objeto json, necesario para que javascript lo pueda leer y pueda manipular en frontend
+     * 
+     */
+    public function dataTable()
+    {
+        $data = $this->EditorialModel->listar(); //temporal porque no hay
+        echo json_encode($data);
     }
 
     public function formUpdateEditorial($id)

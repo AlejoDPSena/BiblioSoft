@@ -159,5 +159,8 @@
     <script src="<?php echo URLROOT ?>jQuery-3.6.0/jquery-3.6.0.min.js"></script>
     <script src="<?php echo URLROOT ?>DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
 
+    <!-- js de la vista -->
+    <script src="<?php echo URLROOT ?>js/libro.js"></script>
+
 
     <?php require_once APPROOT . '/views/inc/footer.php'; ?>
