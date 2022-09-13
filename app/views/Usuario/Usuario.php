@@ -24,7 +24,7 @@
                                                                     <button class="btn btn-secondary" type="submit"><i class="bi bi-search"></i></button>
                                                                 </div>
                                                             </form>
-                                                            <a class="btn btn-success btn-sm" href="<?php echo URLROOT; ?>Usuario/ImprimirListado"><i class="bi bi-printer"></i></a></small>
+                                                            <a class="btn btn-impresion btn-sm" href="<?php echo URLROOT; ?>Usuario/ImprimirListado"><i class="bi bi-printer"></i></a></small>
                                                         </div>
                                                         <div>
                                                             <a href="<?php echo URLROOT; ?>Usuario/formAdd" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i>Añadir Usuario</a>

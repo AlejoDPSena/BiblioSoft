@@ -4,6 +4,14 @@
 }
 
 .badge-opacity-naranjamadera {
-  background: #f08054;
+  background: #f2b59d;
   color: #744a3a;
+}
+
+.btn-impresion {
+    background: #B8DFEE;
+}
+
+.btn-impresion:hover {
+    background: #71CCF0;
 }
