@@ -46,6 +46,8 @@
                                                                     <th>Apellido</th>
                                                                     <th>Telefono</th>
                                                                     <th>Estado</th>
+                                                                    <th>Penalización</th>
+                                                                    <th>Editar</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
