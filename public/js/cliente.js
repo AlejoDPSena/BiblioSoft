@@ -31,7 +31,7 @@ $(document).ready(function () {
           data: null,
           defaultContent:
             // "<button type='button' class='btn btn-primary btn-sm shadow-sm' id='agregar'>Editar</button>",
-            "<a href='<?php echo URLROOT; ?>Usuario/formUpdate/<?php echo $usuario->idUsuario; ?>'><div class='badge badge-opacity-warning'>Penalización</div></a>",
+            "<a href='<?php echo URLROOT; ?>Usuario/formUpdate/<?php echo $usuario->idUsuario; ?>'><div class='badge badge-opacity-madera'>Penalización</div></a>",
         },
         {
             data: null,

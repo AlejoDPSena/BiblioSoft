@@ -27,6 +27,7 @@ error_reporting(0);
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="<?php echo URLROOT; ?>css/vertical-layout-light/style.css">
+  <link rel="stylesheet" href="<?php echo URLROOT; ?>css/colorbtn/colorbtn.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="<?php echo URLROOT; ?>public/images/favicon.png" />
 </head>
