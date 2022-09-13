@@ -1,4 +1,9 @@
 .badge-opacity-madera {
-    background: #F0CEB1;
-    color: #704F31;
+  background: #f0ceb1;
+  color: #704f31;
+}
+
+.badge-opacity-naranjamadera {
+  background: #f08054;
+  color: #744a3a;
 }

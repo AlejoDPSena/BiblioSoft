@@ -37,7 +37,7 @@ $(document).ready(function () {
             data: null,
             defaultContent:
               // "<button type='button' class='btn btn-primary btn-sm shadow-sm' id='agregar'>Editar</button>",
-              "<a href='<?php echo URLROOT; ?>Usuario/formUpdate/<?php echo $usuario->idUsuario; ?>'><div class='badge badge-opacity-primary'>Editar</div></a>",
+              "<a href='<?php echo URLROOT; ?>Usuario/formUpdate/<?php echo $usuario->idUsuario; ?>'><div class='badge badge-opacity-naranjamadera'>Editar</div></a>",
           },
       ],
     });
