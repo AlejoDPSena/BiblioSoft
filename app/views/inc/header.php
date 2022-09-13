@@ -3,7 +3,7 @@ session_start();
 error_reporting(0);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">

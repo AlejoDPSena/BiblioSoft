@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('#tblLibro').DataTable({
-        ajax: {url:'http://localhost:8080/CursoPHP-master/BiblioSoft/Editorial/dataTable', dataSrc: ""},
+        ajax: {url:'http://localhost:8080/curso_php/BiblioSoft/Libro/llenarTable', dataSrc: ""},
         columns: [
             { data: 'idLibro' },
             { data: 'nombreLibro' },

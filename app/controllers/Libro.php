@@ -33,7 +33,7 @@ class Libro extends Controller
      * Devuelve la data en un objeto json, necesario para que javascript lo pueda leer y pueda manipular en frontend
      * @return void
      */
-    public function dataTable()
+    public function llenarTable()
     {
         $data = $this->LibroModel->listar(); //temporal porque no hay
         echo json_encode($data);
