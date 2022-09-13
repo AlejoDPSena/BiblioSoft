@@ -48,6 +48,7 @@
                                                                     <th>Teléfono</th>
                                                                     <th>Email</th>
                                                                     <th>Rol</th>
+                                                                    <th>Editar</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
