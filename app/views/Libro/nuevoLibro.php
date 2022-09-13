@@ -114,5 +114,7 @@
         </div>
     </div>
 
-
+    <script src="<?php echo URLROOT; ?>public/css/sweetalert2.min.css"></script>
+    <script src="<?php echo URLROOT; ?>public/js/sweetalert2.all.min.js"></script>
+    <script src="<?php echo URLROOT; ?>public/js/nuevoLibro.js"></script>
     <?php require_once APPROOT . '/views/inc/footer.php'; ?>
