@@ -80,6 +80,17 @@
         </div>
     </div>
 
+    <div class="modal fade" id="modalPrestamo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content" id="contenidoPrestamoModal">
+      <div class="modal-footer">
+        <a class="btn btn-primary" href="http://localhost/curso_php/Bibliosoft/crearPrestamo/2" >Confirmar</a>
+          <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <!-- plugins:js -->
     <script src="<?php echo URLROOT ?>vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->

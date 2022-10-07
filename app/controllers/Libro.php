@@ -128,12 +128,14 @@ class Libro extends Controller
             $data = [
                 'mensaje' => 'Eliminación exitosa'
             ];
-            $this->renderView('Libro/Libro', $data);
+            /* $this->renderView('Libro/Libro', $data); */
+            echo "Hecho";
         }else{
             $data = [
                 'mensaje' => 'Error en la eliminación'
             ];
-            $this->renderView('Libro/Libro', $data);
+            echo "Error";
+            /* $this->renderView('Libro/Libro', $data); */
         }
     }
 

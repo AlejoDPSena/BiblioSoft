@@ -178,8 +178,10 @@ class Cliente extends Controller
         echo json_encode($cliente);
     }
 
-    public function crearPrestamo(){
-        $data = [];  //temporal porque no hay data
+    public function crearPrestamo($id){
+        $data = [];
+        $data = $this->ClienteModel->getOne($id);
+        /* echo "Prestamo;".$id; */
         $this->renderView('Cliente/crearPrestamo', $data);
     }
 }

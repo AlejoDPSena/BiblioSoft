@@ -56,6 +56,30 @@
         </div>
     </div>
 
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal eliminar-->
+<div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Eliminar Libro</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="preguntaEliminar">
+
+        </div>
+        <div class="modal-footer">
+          <button type="" class="btn btn-primary" id="confirmarDelete">Confirmar</button>
+          <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
         <!-- plugins:js -->
     <script src="<?php echo URLROOT ?>vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
@@ -83,6 +107,7 @@
     <!-- Data tables -->
     <script src="<?php echo URLROOT ?>jQuery-3.6.0/jquery-3.6.0.min.js"></script>
     <script src="<?php echo URLROOT ?>DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo URLROOT; ?>js/sweetalert2.all.min.js"></script>
 
     <!-- js de la vista -->
     <script src="<?php echo URLROOT ?>js/libro.js"></script>

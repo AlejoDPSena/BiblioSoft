@@ -25,7 +25,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">Fecha</label>
                                                                     <div class="col-sm-9">
-                                                                        <input type="date" name="nombreCliente" class="form-control" />
+                                                                        <input type="date" name="Fecha" class="form-control" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -33,7 +33,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">Id. cliente</label>
                                                                     <div class="col-sm-9">
-                                                                        <input type="text" class="form-control" aria-label="Recipient's username">
+                                                                        <input readonly type="text" class="form-control" aria-label="Recipient's username" value="<?php echo $data->idCliente; ?>">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -41,14 +41,12 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-4 col-form-label">Nombre Cliente</label>
                                                                     <div class="col-sm-8">
-                                                                        <input type="text" class="form-control" aria-label="Recipient's username">
+                                                                        <input readonly type="text" class="form-control" aria-label="Recipient's username" value="<?php echo $data->nombreCliente; ?>">
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <button type="submit" class="btn btn-primary  btn-sm ms-1" data-bs-toggle="modal" data-bs-target="#libros"><i class="bi bi-plus-circle"> Consultar libros</i></button>
-                                                        </div>
+
                                                         <!-- <div class="row mb-1 mt-1">
                                                             <div class="col-4"></div>
                                                             <div class="col-4">
@@ -63,11 +61,14 @@
                                                                 <table class="table table-bordered table-sm" id="detalle">
                                                                     <thead class=" table-light">
                                                                         <tr>
-                                                                            <th>Item</th>
-                                                                            <th>Libro</th>
+                                                                            <th>Id</th>
+                                                                            <th>Nombre</th>
                                                                             <th>Categoria</th>
-                                                                            <th>Editorial</th>
+                                                                            <th>Autor</th>
                                                                             <th>Cantidad</th>
+                                                                            <th>Detalles</th>
+                                                                            <th>Publicación</th>
+                                                                            <th>Editorial</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody>
@@ -83,6 +84,9 @@
                                                         </div>
 
                                                     </form>
+                                                    <div class="row">
+                                                        <button type="button" class="btn btn-primary  btn-sm ms-1" id="modalLibrosAbrir" data-bs-toggle="modal" data-bs-target="#libros"><i class="bi bi-plus-circle"> Consultar libros</i></button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -95,52 +99,94 @@
             </div>
         </div>
     </div>
+    <!-- Button trigger modal -->
+    <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
 
+    <!-- Modal -->
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
 
     <!-- Modal Libro-->
-<div class="modal fade" id="libros" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Libros</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
+    <div class="modal fade" id="libros" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Libros</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
 
-                <table class="table table-bordered table-sm table-hover" id="tblItems">
-                    <thead class="table-light">
-                        <tr>
-                            <th>Agregar</th>
-                            <th>Id</th>
-                            <th>Descripción del libro</th>
+                    <table class="table table-bordered table-sm table-hover" id="tblLibros">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Agregar</th>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Categoria</th>
+                                <th>Autor</th>
+                                <th>Cantidad</th>
+                                <th>Detalles</th>
+                                <th>Publicación</th>
+                                <th>Editorial</th>
+                            </tr>
+                        </thead>
+                        <tbody class="table-group-divider">
 
-
-                        </tr>
-                    </thead>
-                    <tbody class="table-group-divider">
-
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <th>Agregar</th>
-                            <th>Id</th>
-                            <th>Descripción del libro</th>
-
-                        </tr>
-
-                    </tfoot>
-                </table>
-
-
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
+    <script src="<?php echo URLROOT ?>vendors/js/vendor.bundle.base.js"></script>
+    <!-- endinject -->
+    <!-- Plugin js for this page -->
+    <script src="<?php echo URLROOT ?>vendors/chart.js/Chart.min.js"></script>
+    <script src="<?php echo URLROOT ?>vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="<?php echo URLROOT ?>vendors/progressbar.js/progressbar.min.js"></script>
+
+    <!-- End plugin js for this page -->
+    <!-- inject:js -->
+    <script src="<?php echo URLROOT ?>js/off-canvas.js"></script>
+    <script src="<?php echo URLROOT ?>js/hoverable-collapse.js"></script>
+    <script src="<?php echo URLROOT ?>js/template.js"></script>
+    <script src="<?php echo URLROOT ?>js/settings.js"></script>
+    <script src="<?php echo URLROOT ?>js/todolist.js"></script>
+    <!-- endinject -->
+    <!-- Custom js for this page-->
+    <!-- <script src="js/jquery.cookie.js" type="text/javascript"></script> -->
+    <script src="<?php echo URLROOT ?>js/dashboard.js"></script>
+    <script src="<?php echo URLROOT ?>js/Chart.roundedBarCharts.js"></script>
+    <!-- script bootstrap5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <!-- End custom js for this page-->
+
+    <!-- Data tables -->
+    <script src="<?php echo URLROOT ?>jQuery-3.6.0/jquery-3.6.0.min.js"></script>
+    <script src="<?php echo URLROOT ?>DataTables-1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo URLROOT; ?>js/sweetalert2.all.min.js"></script>
+    <script src="<?php echo URLROOT; ?>js/prestamo.js"></script>
 
     <?php require_once APPROOT . '/views/inc/footer.php'; ?>
