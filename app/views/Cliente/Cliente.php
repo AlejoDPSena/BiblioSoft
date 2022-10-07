@@ -46,12 +46,13 @@
                                                                     <th>Apellido</th>
                                                                     <th>Telefono</th>
                                                                     <th>Estado</th>
+                                                                    <th>Prestamo</th>
                                                                     <th>Penalización</th>
                                                                     <th>Editar</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                
+
                                                             </tbody>
                                                         </table>
                                                         <!-- <nav aria-label="Page navigation example">
@@ -79,7 +80,7 @@
         </div>
     </div>
 
-        <!-- plugins:js -->
+    <!-- plugins:js -->
     <script src="<?php echo URLROOT ?>vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->
@@ -102,7 +103,7 @@
     <!-- script bootstrap5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <!-- End custom js for this page-->
-    
+
 
     <!-- Data tables -->
     <script src="<?php echo URLROOT ?>jQuery-3.6.0/jquery-3.6.0.min.js"></script>
