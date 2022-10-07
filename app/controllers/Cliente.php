@@ -177,4 +177,9 @@ class Cliente extends Controller
         $cliente = $this->ClienteModel->getTable();
         echo json_encode($cliente);
     }
+
+    public function crearPrestamo(){
+        $data = [];  //temporal porque no hay data
+        $this->renderView('Cliente/crearPrestamo', $data);
+    }
 }
