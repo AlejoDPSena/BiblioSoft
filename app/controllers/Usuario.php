@@ -56,10 +56,7 @@ class Usuario extends Controller
             ];
             $resultado = $this->UsuarioModel->add($data);
             if ($resultado) {
-                $data = [
-                    'mensaje' => 'insercion exitosa'
-                ];
-                $this->renderView('Usuario/nuevoUsuario', $data);
+                echo json_encode('Exito: Usuario Creado !.');
             } else {
                 $data = [
                     'mensaje' => 'error en la insercion'

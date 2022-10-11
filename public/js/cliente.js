@@ -28,19 +28,29 @@ $(document).ready(function () {
       { data: "nombreCliente" },
       { data: "apellidoCliente" },
       { data: "telefonoCliente" },
-      { data: "estadoCliente" },
+      // { data: "estadoCliente" },
+      {
+        data: "estadoCliente",
+        render: function (data) {
+            return 1 === 1
+                ? '<button id="estado" data-bs-toggle="modal" data-bs-target="#modalEstado" class="badge badge-opacity-madera">'+data+'</button>'
+                : data;
+        /* defaultContent:
+          // "<button type='button' class='btn btn-primary btn-sm shadow-sm' id='agregar'>Editar</button>",
+          `<button id='estado' data-bs-toggle='modal' data-bs-target='#modalEstado' class='badge badge-opacity-madera'>${data}</button>`, */
+      }},
       {
         data: null,
         defaultContent:
           // "<button type='button' class='btn btn-primary btn-sm shadow-sm' id='agregar'>Editar</button>",
           "<button id='prestamo' data-bs-toggle='modal' data-bs-target='#modalPrestamo' class='badge badge-opacity-madera'>Prestamo</button>",
       },
-      {
-        data: null,
-        defaultContent:
-          // "<button type='button' class='btn btn-primary btn-sm shadow-sm' id='agregar'>Editar</button>",
-          "<button id='penalizacion' class='badge badge-opacity-madera'>Penalización</button>",
-      },
+      // {
+      //   data: null,
+      //   defaultContent:
+      //     // "<button type='button' class='btn btn-primary btn-sm shadow-sm' id='agregar'>Editar</button>",
+      //     "<button id='penalizacion' class='badge badge-opacity-madera'>Penalización</button>",
+      // },
       {
         data: null,
         defaultContent:
@@ -53,15 +63,16 @@ $(document).ready(function () {
   $("#tblCliente tbody").on("click", "#prestamo", function () {
     let data = table.row($(this).parents("tr")).data();
     modalPrestamo(data.idCliente,data.nombreCliente);
+  });
 
+  $("#tblCliente tbody").on("click", "#editar", function () {
+    let data = table.row($(this).parents("tr")).data();
+    modalEditar(data.idCliente,data.nombreCliente);
+  });
 
-    // $("#tblItems tbody").on("click", "#agregar", function () {
-    //   var data = table.row($(this).parents("tr")).data();//captura info
-    //   agregarDetalle(data.idItem, data.descripcion);
-    //   //alert(data.idItem + "'s salary is: " + data.descripcion);
-    // });
-    //alert(data);
-    //alert(data.idItem + "'s salary is: " + data.descripcion);
+  $("#tblCliente tbody").on("click", "#estado", function () {
+    let data = table.row($(this).parents("tr")).data();
+    modalEstado(data.idCliente,data.nombreCliente);
   });
 });
 
@@ -88,7 +99,7 @@ function modalEditar(id, nombre) {
   let contenido = document.getElementById("contenidoEditarModal");
   let filas = `
   <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Actualizar</h5>
+          <h5 class="modal-title" id="exampleModalLabel">ACTUALIZAR</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -96,7 +107,26 @@ function modalEditar(id, nombre) {
 
         </div>
         <div class="modal-footer">
-        <a class="btn btn-primary" href="${URLROOT}Cliente/editarCliente/${id}" >Confirmar</a>
+        <a class="btn btn-primary" href="${URLROOT}Cliente/update/${id}" >Confirmar</a>
+          <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>      
+      `;
+  contenido.innerHTML = filas;
+}
+
+function modalEstado(id, nombre) {
+  let contenido = document.getElementById("contenidoEstadoModal");
+  let filas = `
+  <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Actualizar Estado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <p>¿Desea cambiar el estado del cliente ${nombre}?</p>
+
+        </div>
+        <div class="modal-footer">
+        <a class="btn btn-primary" href="${URLROOT}Cliente/updateEstado/${id}" >Confirmar</a>
           <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
         </div>      
       `;

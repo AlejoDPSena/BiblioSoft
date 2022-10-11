@@ -26,7 +26,6 @@
                                                             </form>
                                                             <a class="btn btn-impresion btn-sm" href="<?php echo URLROOT; ?>Usuario/ImprimirListado"><i class="bi bi-printer"></i></a></small>
                                                         </div>
-                                                        <h3>Jesuss</h3>
                                                         <div>
                                                             <a href="<?php echo URLROOT; ?>Usuario/formAdd" class="btn btn-primary btn-lg text-white mb-0 me-0" type="button"><i class="mdi mdi-account-plus"></i>Añadir Usuario</a>
                                                         </div>
@@ -53,7 +52,7 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                
+
                                                             </tbody>
                                                         </table>
                                                         <!-- <nav aria-label="Page navigation example">
@@ -81,7 +80,20 @@
         </div>
     </div>
 
-        <!-- plugins:js -->
+    <!-- Modal Editar -->
+    <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="contenidoEditarModal">
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="http://localhost/curso_php/bibliosoft/Usuario/update/1">Confirmar</a>
+                    <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- plugins:js -->
     <script src="<?php echo URLROOT ?>vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->

@@ -16,7 +16,7 @@
                                             <div class="card card-rounded">
                                                 <div class="card-body">
                                                     <h4 class="card-title">Prestamo</h4>
-                                                    <form class="form-sample" action="<?php echo URLROOT; ?>Cliente/crearPrestamo" method="post">
+                                                    <form class="form-sample" action="<?php echo URLROOT; ?>Prestamo/guardar" id="frmPrestamo" method="post">
                                                         <p class="card-description">
                                                             Personal info
                                                         </p>
@@ -25,7 +25,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">Fecha</label>
                                                                     <div class="col-sm-9">
-                                                                        <input type="date" name="Fecha" class="form-control" />
+                                                                        <input type="datetime-local" name="fechaFin" class="form-control" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -33,7 +33,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">Id. cliente</label>
                                                                     <div class="col-sm-9">
-                                                                        <input readonly type="text" class="form-control" aria-label="Recipient's username" value="<?php echo $data->idCliente; ?>">
+                                                                        <input readonly type="text" name="idCliente" class="form-control" aria-label="Recipient's username" value="<?php echo $data->idCliente; ?>">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -41,7 +41,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-4 col-form-label">Nombre Cliente</label>
                                                                     <div class="col-sm-8">
-                                                                        <input readonly type="text" class="form-control" aria-label="Recipient's username" value="<?php echo $data->nombreCliente; ?>">
+                                                                        <input readonly type="text" name="nombreCliente" class="form-control" aria-label="Recipient's username" value="<?php echo $data->nombreCliente; ?>">
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -56,6 +56,9 @@
                                                             </div>
                                                         </div> -->
                                                         <div class="row">
+                                                            <button type="button" class="btn btn-primary  btn-sm ms-1" id="modalLibrosAbrir" data-bs-toggle="modal" data-bs-target="#libros"><i class="bi bi-plus-circle"> Consultar libros</i></button>
+                                                        </div>
+                                                        <div class="row">
                                                             <div class="col-12">
 
                                                                 <table class="table table-bordered table-sm" id="detalle">
@@ -65,6 +68,7 @@
                                                                             <th>Nombre</th>
                                                                             <th>Categoria</th>
                                                                             <th>Autor</th>
+                                                                            <th>Disponibles</th>
                                                                             <th>Cantidad</th>
                                                                             <th>Detalles</th>
                                                                             <th>Publicación</th>
@@ -80,13 +84,9 @@
                                                         </div>
                                                         <div class="m-1">
                                                             <button type="submit" class="btn btn-success  btn-sm ms-1">Enviar</button>
-                                                            <button type="submit" class="btn btn-success  btn-sm ms-1">Cancelar</button>
+                                                            <a href="<?php echo URLROOT; ?>Cliente" class="btn btn-success  btn-sm ms-1">Cancelar</a>
                                                         </div>
-
                                                     </form>
-                                                    <div class="row">
-                                                        <button type="button" class="btn btn-primary  btn-sm ms-1" id="modalLibrosAbrir" data-bs-toggle="modal" data-bs-target="#libros"><i class="bi bi-plus-circle"> Consultar libros</i></button>
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

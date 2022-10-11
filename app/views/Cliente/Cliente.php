@@ -47,7 +47,6 @@
                                                                     <th>Telefono</th>
                                                                     <th>Estado</th>
                                                                     <th>Prestamo</th>
-                                                                    <th>Penalización</th>
                                                                     <th>Editar</th>
                                                                 </tr>
                                                             </thead>
@@ -80,16 +79,41 @@
         </div>
     </div>
 
+    <!-- Modal Prestamo -->
     <div class="modal fade" id="modalPrestamo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content" id="contenidoPrestamoModal">
-      <div class="modal-footer">
-        <a class="btn btn-primary" href="http://localhost/curso_php/Bibliosoft/crearPrestamo/2" >Confirmar</a>
-          <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        <div class="modal-dialog">
+            <div class="modal-content" id="contenidoPrestamoModal">
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="http://localhost/curso_php/Bibliosoft/crearPrestamo/2">Confirmar</a>
+                    <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+
+    <!-- Modal Editar -->
+    <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="contenidoEditarModal">
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="http://localhost/curso_php/Bibliosoft/Cliente/update/1">Confirmar</a>
+                    <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Estado -->
+    <div class="modal fade" id="modalEstado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="contenidoEstadoModal">
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="http://localhost/curso_php/bibliosoft/Cliente/updateEstado/3">Confirmar</a>
+                    <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- plugins:js -->
     <script src="<?php echo URLROOT ?>vendors/js/vendor.bundle.base.js"></script>

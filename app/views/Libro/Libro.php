@@ -56,10 +56,18 @@
         </div>
     </div>
 
-    <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button>
+        <!-- Modal Editar -->
+        <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="contenidoEditarModal">
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="http://localhost/curso_php/bibliosoft/Libro/formUpdateBook/1">Confirmar</a>
+                    <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 <!-- Modal eliminar-->
 <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

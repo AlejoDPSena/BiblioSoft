@@ -40,6 +40,7 @@ class Login extends Controller
                 $_SESSION['nombre2Usuario'] = $resultado->nombre2Usuario;
                 $_SESSION['apellido1Usuario'] = $resultado->apellido1Usuario;
                 $_SESSION['apellido2Usuario'] = $resultado->apellido2Usuario; 
+                $_SESSION['control'] = 0;
                 $this->renderView('Inicio',$data); 
             } else {
                 session_start();

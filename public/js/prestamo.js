@@ -1,14 +1,12 @@
-let medico = document.getElementById("medico");
-let idMedico = document.getElementById("idMedico");
-let frmFormula = document.getElementById("frmFormula");
+let frmPrestamo = document.getElementById("frmPrestamo");
 let contador = 0; //conteo de la las filas del detalle
 
 //Carga Inicial de las interacciones
-/* function init() {
-  frmFormula.addEventListener("submit", function (e) {
+function init() {
+  frmPrestamo.addEventListener("submit", function (e) {
     guardar(e);
   });
-} */
+}
 
 //=========================================================================================================
 
@@ -18,11 +16,11 @@ let contador = 0; //conteo de la las filas del detalle
  */
 
 //Guardar el documento
-/* function guardar(e) {
+const URLROOT = "http://localhost/curso_php/Bibliosoft/";
+function guardar(e) {
   e.preventDefault();
-  let datos = new FormData(frmFormula);
-
-  fetch("http://localhost/Aphp/hospv2/Formula/guardar", {
+  let datos = new FormData(frmPrestamo);
+  fetch(URLROOT+"Prestamo/guardar", {
     method: "POST",
     body: datos,
   })
@@ -37,9 +35,9 @@ let contador = 0; //conteo de la las filas del detalle
     .catch((error) => {
       console.log("hay un error :", error);
     });
-} */
+}
 
-const URLROOT = "http://localhost/curso_php/Bibliosoft/";
+
 
 //para llenar el cuadro de busqueda de la modal de items
 $(document).ready(function () {
@@ -76,23 +74,24 @@ $(document).ready(function () {
 
 function agregarDetalle(id, nombre,categoria,autor,cantidad,detalles,publicacion,nombreEditorial) {
   
-  detalle = document.getElementById("detalle");
+  detalles = document.getElementById("detalle");
   fila = `  
   <tr id='filas' > 
-  <td><input type="text" name="idItem[]" id="idItem[]" value ='${id}' class="form-control form-control-sm" readonly></td>
-  <td><input type="text" name="descripcion[]"  id="descripcion[]" value ='${nombre}' class="form-control form-control-sm" readonly></td>
-  <td><input type="text" name="descripcion[]"  id="descripcion[]" value ='${categoria}' class="form-control form-control-sm" readonly></td>
-  <td><input type="text" name="descripcion[]"  id="descripcion[]" value ='${autor}' class="form-control form-control-sm" readonly></td>
-  <td><input type="text" name="descripcion[]"  id="descripcion[]" class="form-control form-control-sm"></td>
-  <td><input type="text" name="descripcion[]"  id="descripcion[]" value ='${detalles}' class="form-control form-control-sm" readonly></td>
-  <td><input type="text" name="descripcion[]"  id="descripcion[]" value ='${publicacion}' class="form-control form-control-sm" readonly></td>
-  <td><input type="text" name="descripcion[]"  id="descripcion[]" value ='${nombreEditorial}' class="form-control form-control-sm" readonly></td>
+  <td><input type="text" name="idLibro[]" id="idItem[]" value ='${id}' class="form-control form-control-sm" readonly></td>
+  <td><input type="text" value ='${nombre}' class="form-control form-control-sm" readonly></td>
+  <td><input type="text" value ='${categoria}' class="form-control form-control-sm" readonly></td>
+  <td><input type="text" value ='${autor}' class="form-control form-control-sm" readonly></td>
+  <td><input type="text" value ='${cantidad}' class="form-control form-control-sm" readonly></td>
+  <td><input type="number" name="cantidad[]"  id="cantidad[]" class="form-control form-control-sm"></td>
+  <td><input type="text" value ='${detalles}' class="form-control form-control-sm" readonly></td>
+  <td><input type="text" value ='${publicacion}' class="form-control form-control-sm" readonly></td>
+  <td><input type="text" value ='${nombreEditorial}' class="form-control form-control-sm" readonly></td>
   </tr>
   `;
-  detalle.innerHTML += fila;
+  detalles.innerHTML += fila;
 }
 
 //======================================================================================================
 
 //cargamos todo
-//init();
+/* init(); */

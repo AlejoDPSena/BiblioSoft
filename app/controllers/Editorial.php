@@ -1,5 +1,5 @@
 <?php
-
+$_SESSION['control'] = 0 ;
 class Editorial extends Controller
 {
     public function __construct()
@@ -25,7 +25,12 @@ class Editorial extends Controller
 
         ]; */
         $data = [];
-        $this->renderView('Editorial/Editorial', $data);
+        if (isset($_SESSION['control'])){
+            $this->renderView('Editorial/Editorial', $data);
+        }
+        else{
+            $this->renderView('Login', $data);
+        }
     }
     
     /**

@@ -32,6 +32,7 @@
                                                                     <th>Nombre</th>
                                                                     <th>Telefono</th>
                                                                     <th>Ubicación</th>
+                                                                    <th>Editar</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -52,6 +53,13 @@
         </div>
     </div>
     
+    <!-- Modal Editar -->
+    <div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="contenidoEditarModal">
+            </div>
+        </div>
+    </div>
 
         <!-- plugins:js -->
     <script src="<?php echo URLROOT ?>vendors/js/vendor.bundle.base.js"></script>
@@ -85,10 +93,3 @@
     <script src="<?php echo URLROOT ?>js/editorial.js"></script>
     
     <?php require_once APPROOT . '/views/inc/footer.php'; ?>
-
-    <!-- <a href="<?php echo URLROOT; ?>Editorial/formUpdateEditorial/<?php echo $editorial->idEditorial; ?>">
-        <div class="badge badge-opacity-primary">Editar</div>
-    </a> -->
-    <!-- <a href="<?php echo URLROOT; ?>Editorial/deleteEditorial/<?php echo $editorial->idEditorial; ?>">
-        <div class="badge badge-opacity-danger">Eliminar</div>
-    </a> -->

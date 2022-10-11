@@ -48,6 +48,7 @@ class UsuarioModel{
         $this->db->query('UPDATE usuario SET nombre1Usuario=:nombre1Usuario,nombre2Usuario=:nombre2Usuario,apellido1Usuario=:apellido1Usuario,apellido2Usuario=:apellido2Usuario,telefonoUsuario=:telefonoUsuario,emailUsuario=:emailUsuario,usuarioUsuario=:usuarioUsuario,Rol_idRol=:Rol_idRol WHERE idUsuario=:idUsuario       
         ');
         //vinculacion de los datos
+        $this->db->bind(':idUsuario', $data['idUsuario']);
         $this->db->bind(':nombre1Usuario', $data['nombre1Usuario']);
         $this->db->bind(':nombre2Usuario', $data['nombre2Usuario']);
         $this->db->bind(':apellido1Usuario', $data['apellido1Usuario']);
