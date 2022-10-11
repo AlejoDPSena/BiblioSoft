@@ -36,6 +36,24 @@ class EditorialModel{
         }
     }
 
+
+    public function updateEstado($data)
+    {
+        $this->db->query('UPDATE editorial SET estadoEditorial=:estadoEditorial WHERE idEditorial=:idEditorial       
+        ');
+        //vinculacion de los datos
+        $this->db->bind(':idEditorial', $data['idEditorial']);
+        $this->db->bind(':estadoEditorial', $data['estadoEditorial']);
+
+        // ejecucion de la consulta
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function update($data)
     {
         $this->db->query("update editorial set nombreEditorial=:nombreEditorial,telefonoEditorial=:telefonoEditorial,ubicacionEditorial=:ubicacionEditorial where idEditorial=:idEditorial ");

@@ -68,6 +68,17 @@
         </div>
     </div>
 
+    <div class="modal fade" id="modalEstado" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" id="contenidoEstadoModal">
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="http://localhost/curso_php/bibliosoft/Libro/updateEstado/">Confirmar</a>
+                    <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 <!-- Modal eliminar-->
 <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

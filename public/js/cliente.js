@@ -13,7 +13,6 @@
 //         ],
 //     });
 // });
-
 const URLROOT = "http://localhost/curso_php/Bibliosoft/"
 
 $(document).ready(function () {

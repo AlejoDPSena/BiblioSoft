@@ -24,20 +24,48 @@ function guardar(e) {
     method: "POST",
     body: datos,
   })
-    .then((response) => response.json())
-    .then((data) => {
-      Swal.fire({
-        title: data,
-        icon: "success",
-        confirmButtonText: "Ok",
-      });
+    .then(function (response){
+      if (response.ok) {
+        return responje.json;
+      } else {
+        throw "Error en la llamada Ajax";
+      }
     })
-    .catch((error) => {
-      console.log("hay un error :", error);
-    });
+    .then(function (ok) {
+      alertPrestamo(ok)
+    })
+    .catch(function (err) {
+      alertErrorPrestamo(err);
+  });
 }
 
+function alertPrestamo(data) {
+  Swal.fire({
+    title: "¡Inserción Exitosa!",
+    text: data,
+    icon: "success",
+    confirmButtonText: "ok",
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      location.reload();
+    }
+  });
+}
 
+function alertErrorPrestamo(e) {
+  Swal.fire({
+    title: "Error!!",
+    text: e,
+    icon: "error",
+    confirmButtonText: "ok",
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result.isConfirmed) {
+      location.reload();
+    }
+  });
+}
 
 //para llenar el cuadro de busqueda de la modal de items
 $(document).ready(function () {
@@ -94,4 +122,4 @@ function agregarDetalle(id, nombre,categoria,autor,cantidad,detalles,publicacion
 //======================================================================================================
 
 //cargamos todo
-/* init(); */
+init();

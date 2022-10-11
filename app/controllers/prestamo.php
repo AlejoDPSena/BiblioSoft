@@ -12,7 +12,7 @@ class Prestamo extends Controller
     public function guardar()
     {
         $data = [];
-        $fechaActual = date ( 'd-m-Y H:i:s' );
+        $fechaActual = date ( 'Y-m-d' );
 
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $data = [
@@ -25,7 +25,6 @@ class Prestamo extends Controller
             $resultado = $this->prestamoModel->add($data);
             if ($resultado) {
                 $numFormula = $this->prestamoModel->getLast();
-                echo $numFormula;
                 $respuesta = $this->detalleModel->add($data,$numFormula);
             }
             if ($respuesta){

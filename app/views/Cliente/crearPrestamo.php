@@ -16,7 +16,7 @@
                                             <div class="card card-rounded">
                                                 <div class="card-body">
                                                     <h4 class="card-title">Prestamo</h4>
-                                                    <form class="form-sample" action="<?php echo URLROOT; ?>Prestamo/guardar" id="frmPrestamo" method="post">
+                                                    <form class="form-sample" id="frmPrestamo">
                                                         <p class="card-description">
                                                             Personal info
                                                         </p>
@@ -25,7 +25,7 @@
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">Fecha</label>
                                                                     <div class="col-sm-9">
-                                                                        <input type="datetime-local" name="fechaFin" class="form-control" />
+                                                                        <input type="date" name="fechaFin" class="form-control" />
                                                                     </div>
                                                                 </div>
                                                             </div>

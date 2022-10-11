@@ -43,6 +43,23 @@ class UsuarioModel{
         }
     }
 
+    public function updateEstado($data)
+    {
+        $this->db->query('UPDATE usuario SET estadoUsuario=:estadoUsuario WHERE idUsuario=:idUsuario       
+        ');
+        //vinculacion de los datos
+        $this->db->bind(':idUsuario', $data['idUsuario']);
+        $this->db->bind(':estadoUsuario', $data['estadoUsuario']);
+
+        // ejecucion de la consulta
+
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function update($data)
     {
         $this->db->query('UPDATE usuario SET nombre1Usuario=:nombre1Usuario,nombre2Usuario=:nombre2Usuario,apellido1Usuario=:apellido1Usuario,apellido2Usuario=:apellido2Usuario,telefonoUsuario=:telefonoUsuario,emailUsuario=:emailUsuario,usuarioUsuario=:usuarioUsuario,Rol_idRol=:Rol_idRol WHERE idUsuario=:idUsuario       

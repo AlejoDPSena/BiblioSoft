@@ -62,6 +62,31 @@ class Libro extends Controller
         $this->renderView('Libro/nuevoLibro', $data);
     }
 
+    public function updateEstado($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data = [
+                'idLibro' => $id,  //$id
+                'estadoLibro' => $_POST['estadoLibro']
+            ];
+
+            if ($this->LibroModel->updateEstado($data)) {
+                $data = [];
+                $this->renderView('Libro/Libro', $data);
+            } else {
+                die('ocurrió un error en la edicición!');
+            };
+        } else {
+            $libro = $this->LibroModel->getOne($id);
+            $data = [
+                'idLibro' => $libro->idLibro,
+                'nombreLibro' => $libro->nombreLibro,
+                'estadoLibro' => $libro->estadoLibro
+            ];
+            $this->renderView('Libro/estadoLibro', $data);
+        }
+    }
+
     public function addBook()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -76,18 +101,12 @@ class Libro extends Controller
             ];
             $resultado = $this->LibroModel->add($data);
             if ($resultado) {
-                $data = [
-                    'mensajeLibro' => 'Insercion exitosa'
-                ];
-                $this->renderView('Libro/Libro', $data);
+                echo json_encode('Exito: Libro Creado !.');
             } else {
-                $data = [
-                    'mensajeLibro' => 'Error en la insercion'
-                ];
-                $this->renderView('Libro/Libro', $data);
+                echo json_encode('Error en la inserción!.');
             }
         } else {
-            echo 'Atención! los datos no fueron enviados de un formulario';
+            echo json_encode('Atención! los datos no fueron enviados de un formulario');
         }
     }
 

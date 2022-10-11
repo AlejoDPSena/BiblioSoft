@@ -1,4 +1,5 @@
 const URLROOT = "http://localhost/curso_php/Bibliosoft/"
+
 $(document).ready(function () {
     var table =$('#tblEditorial').DataTable({
         ajax: {url:'http://localhost/curso_php/Bibliosoft/Editorial/dataTable', dataSrc: ""},

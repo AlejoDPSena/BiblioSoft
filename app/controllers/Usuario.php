@@ -40,6 +40,32 @@ class Usuario extends Controller
         /* $this->renderView('Usuario/editarUsuario', $data); */
     }
 
+    public function updateEstado($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data = [
+                'idUsuario' => $id,  //$id
+                'estadoUsuario' => $_POST['estadoUsuario']
+            ];
+
+            if ($this->UsuarioModel->updateEstado($data)) {
+                $data = [];
+                $this->renderView('Usuario/Usuario', $data);
+            } else {
+                die('ocurrió un error en la edicición!');
+            };
+        } else {
+            $usuario = $this->UsuarioModel->getOne($id);
+            $data = [
+                'idEditorial' => $usuario->idEditorial,
+                'nombreEditorial' => $usuario->nombreEditorial,
+                'telefonoEditorial' => $usuario->telefonoEditorial,
+                'ubicacionEditorial' => $usuario->ubicacionEditorial
+            ];
+            $this->renderView('Editorial/estadoEditorial', $data);
+        }
+    }
+
     public function addUser()
     {
         if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -56,15 +82,12 @@ class Usuario extends Controller
             ];
             $resultado = $this->UsuarioModel->add($data);
             if ($resultado) {
-                echo json_encode('Exito: Usuario Creado !.');
+                echo json_encode('Exito: Usuario Creado!.');
             } else {
-                $data = [
-                    'mensaje' => 'error en la insercion'
-                ];
-                $this->renderView('Usuario/nuevoUsuario', $data);
+                echo json_encode("Hubo un error!");
             }
         } else {
-            echo 'Atención! los datos no fueron enviados de un formulario';
+            echo json_encode('Atención! los datos no fueron enviados de un formulario');
         }
     }
 

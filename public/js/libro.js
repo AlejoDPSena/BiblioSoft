@@ -27,8 +27,9 @@
         ],
     });
 }); */
-
 const URLROOT = "http://localhost/curso_php/Bibliosoft/";
+
+
 $(document).ready(function () {
     var table = $("#tblLibro").DataTable({
       autoWidth: false,
@@ -52,11 +53,15 @@ $(document).ready(function () {
             "<button id='editar' data-bs-toggle='modal' data-bs-target='#modalEditar' class='badge badge-opacity-madera'>Editar</button>",
         },
         {
-          data: null,
-          defaultContent:
+          data: "estadoLibro",
+          render: function (data) {
+              return 1 === 1
+                  ? '<button id="estado" data-bs-toggle="modal" data-bs-target="#modalEstado" class="badge badge-opacity-madera">'+data+'</button>'
+                  : data;
+          /* defaultContent:
             // "<button type='button' class='btn btn-primary btn-sm shadow-sm' id='agregar'>Editar</button>",
-            "<button id='eliminar' class='badge badge-opacity-madera'  data-bs-toggle='modal' data-bs-target='#modalEliminar'>Eliminar</button>",
-        },
+            `<button id='estado' data-bs-toggle='modal' data-bs-target='#modalEstado' class='badge badge-opacity-madera'>${data}</button>`, */
+        }},
       ],
     });
 
@@ -72,6 +77,10 @@ $(document).ready(function () {
         modalEliminar(data.idLibro, data.nombreLibro);
         //alert(data);
         //alert(data.idItem + "'s salary is: " + data.descripcion);
+      });
+      $("#tblLibro tbody").on("click", "#estado", function () {
+        let data = table.row($(this).parents("tr")).data();
+        modalEstado(data.idLibro, data.nombreLibro);
       });
 });
 
@@ -94,6 +103,26 @@ function modalEditar(id, nombre) {
   contenido.innerHTML = filas;
 }
 
+
+
+function modalEstado(id, nombre) {
+  let contenido = document.getElementById("contenidoEstadoModal");
+  let filas = `
+  <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Actualizar Estado</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <p>¿Desea cambiar el estado del libro ${nombre}?</p>
+
+        </div>
+        <div class="modal-footer">
+        <a class="btn btn-primary" href="${URLROOT}Libro/updateEstado/${id}" >Confirmar</a>
+          <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>      
+      `;
+  contenido.innerHTML = filas;
+}
 
 //funcion para abrir el modal de eliminar con la pregunta de confirmacion
 function modalEliminar(id, titulo) {
@@ -142,10 +171,10 @@ function alertDelete() {
     });
 }
 
-function alertNoDelete() {
+function alertNoDelete(e) {
     Swal.fire({
       title: "Error!!",
-      text: "No se pudo eliminar el libro",
+      text: e,
       icon: "error",
       confirmButtonText: "ok",
     }).then((result) => {

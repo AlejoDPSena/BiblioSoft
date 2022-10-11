@@ -15,25 +15,18 @@
                                         <div class="col-12 grid-margin stretch-card">
                                             <div class="card card-rounded">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">Registro de Editoriales</h4>
-                                                    <form class="form-sample" id="frmEditorial">
+                                                    <h4 class="card-title">Registro de Clientes</h4>
+                                                    <form class="form-sample" action="<?php echo URLROOT; ?>Libro/updateEstado/<?php echo $data['idLibro']; ?>" method="post">
                                                         <p class="card-description">
                                                             Personal info
                                                         </p>
                                                         <div class="row">
+                                                            
                                                             <div class="col-md-6">
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Nombre</label>
+                                                                    <label class="col-sm-3 col-form-label">Nombre Libro</label>
                                                                     <div class="col-sm-9">
-                                                                        <input type="text" name="nombreEditorial" class="form-control" />
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-6">
-                                                                <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Telefono</label>
-                                                                    <div class="col-sm-9">
-                                                                        <input type="text" name="telefonoEditorial" class="form-control" />
+                                                                        <input disabled type="text" name="nombreLibro" class="form-control" value="<?php echo $data['nombreLibro']; ?>"/>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -41,18 +34,18 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Ubicación</label>
+                                                                    <label class="col-sm-3 col-form-label">Estado</label>
                                                                     <div class="col-sm-9">
-                                                                        <input type="text" name="ubicacionEditorial" class="form-control" />
+                                                                        <select name="estadoLibro" id="disabledSelect" class="form-select">
+                                                                            <option value=""><?php echo $data['estadoLibro']; ?></option>
+                                                                            <option value="Activo">Activo</option>
+                                                                            <option value="Inactivo">Inactivo</option>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="col-md-6 d-flex justify-content-end">
-                                                                <div class="mb-3">
-                                                                    <button type="submit" class="btn btn-primary btn-lg text-white mb-0 mt-1 me-0"><i class="bi bi-send-fill"></i>Enviar Datos</button>
-                                                                </div>
-                                                            </div>
                                                         </div>
+                                                        <button type="submit" class="btn btn-success  btn-sm ms-1">Enviar</button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -67,7 +60,5 @@
         </div>
     </div>
 
-    <script src="<?php echo URLROOT; ?>public/css/sweetalert2.min.css"></script>
-    <script src="<?php echo URLROOT; ?>js/sweetalert2.all.min.js"></script>
-    <script src="<?php echo URLROOT ?>js/nuevaEditorial.js"></script>
+
     <?php require_once APPROOT . '/views/inc/footer.php'; ?>

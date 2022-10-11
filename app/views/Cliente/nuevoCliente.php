@@ -16,7 +16,7 @@
                                             <div class="card card-rounded">
                                                 <div class="card-body">
                                                     <h4 class="card-title">Registro de Clientes</h4>
-                                                    <form class="form-sample" action="<?php echo URLROOT; ?>Cliente/addClient" method="post">
+                                                    <form class="form-sample" action="<?php echo URLROOT; ?>Cliente/addClient" id="frmCliente" method="post">
                                                         <p class="card-description">
                                                             Personal info
                                                         </p>
@@ -63,5 +63,8 @@
         </div>
     </div>
 
+    <script src="<?php echo URLROOT; ?>public/css/sweetalert2.min.css"></script>
+    <script src="<?php echo URLROOT; ?>js/sweetalert2.all.min.js"></script>
+    <script src="<?php echo URLROOT ?>js/nuevoCliente.js"></script>
 
     <?php require_once APPROOT . '/views/inc/footer.php'; ?>

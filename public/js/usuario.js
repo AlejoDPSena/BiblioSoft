@@ -17,41 +17,14 @@
 //     });
 // });
 
-//Carga Inicial de las interacciones
-function init() {
-  frmUsuario.addEventListener("submit", function (e) {
-    guardar(e);
-  });
-}
 
 //Guardar el usuario
-function guardar(e) {
-  e.preventDefault();
-  let datos = new FormData(frmUsuario);
-
-  fetch("http://localhost/curso_php/Bibliosoft/Usuario/formAdd", {
-    method: "POST",
-    body: datos,
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      Swal.fire({
-        title: data,
-        icon: "success",
-        confirmButtonText: "Ok",
-      });
-    })
-    .catch((error) => {
-      console.log("hay un error :", error);
-    });
-}
-
-const URLROOT = "http://localhost/curso_php/Bibliosoft/"
+const URLROOT = "http://localhost/curso_php/Bibliosoft/";
 $(document).ready(function () {
     var table = $("#tblUsuario").DataTable({
       autoWidth: false,
       ajax: {
-        url: "http://localhost/curso_php/Bibliosoft/Usuario/datatable",
+        url: URLROOT+ "Usuario/datatable",
         dataSrc: "",
       },
       columns: [
@@ -115,4 +88,3 @@ $(document).ready(function () {
           <a class="btn btn-primary" href="${URLROOT}Usuario/update/${id}" >Confirmar</a>
             <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
           </div>  */}
-init();

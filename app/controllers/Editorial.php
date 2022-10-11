@@ -44,6 +44,32 @@ class Editorial extends Controller
         echo json_encode($data);
     }
 
+    public function updateEstado($id)
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $data = [
+                'idEditorial' => $id,  //$id
+                'estadoEditorial' => $_POST['estadoEditorial']
+            ];
+
+            if ($this->EditorialModel->updateEstado($data)) {
+                $data = [];
+                $this->renderView('Editorial/Editorial', $data);
+            } else {
+                die('ocurrió un error en la edicición!');
+            };
+        } else {
+            $editorial = $this->EditorialModel->getOne($id);
+            $data = [
+                'idEditorial' => $editorial->idEditorial,
+                'nombreEditorial' => $editorial->nombreEditorial,
+                'telefonoEditorial' => $editorial->telefonoEditorial,
+                'ubicacionEditorial' => $editorial->ubicacionEditorial
+            ];
+            $this->renderView('Editorial/estadoEditorial', $data);
+        }
+    }
+
     public function formUpdateEditorial($id)
     {
         $data = $this->EditorialModel->listarUpdate($id);
@@ -66,10 +92,7 @@ class Editorial extends Controller
             ];
             $resultado = $this->EditorialModel->add($data);
             if ($resultado) {
-                $data = [
-                    'mensajeLibro' => 'Insercion exitosa'
-                ];
-                $this->renderView('Editorial/Editorial', $data);
+                echo json_encode('Exito: Editorial Creado !.');
             } else {
                 $data = [
                     'mensajeLibro' => 'Error en la insercion'

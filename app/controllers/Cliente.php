@@ -43,18 +43,12 @@ class Cliente extends Controller
             ];
             $resultado = $this->ClienteModel->add($data);
             if ($resultado) {
-                $data = [
-                    'mensaje' => 'insercion exitosa'
-                ];
-                $this->renderView('Cliente/Cliente', $data);
+                echo json_encode('Exito: Cliente Creado !.');
             } else {
-                $data = [
-                    'mensaje' => 'error en la insercion'
-                ];
-                $this->renderView('Cliente/Cliente', $data);
+                echo json_encode("Hubo un error!");
             }
         } else {
-            echo 'Atención! los datos no fueron enviados de un formulario';
+            echo json_encode('Atención! los datos no fueron enviados de un formulario');
         }
     }
 

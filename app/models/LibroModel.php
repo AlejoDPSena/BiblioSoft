@@ -9,7 +9,7 @@ class LibroModel{
     }
 
     public function listar(){
-        $this->db->query("SELECT idLibro,nombreLibro,categoriaLibro,autorLibro,cantidadLibro,detallesLibro,publicacionLibro,Editorial_idEditorial,nombreEditorial FROM Libro INNER JOIN Editorial on Libro.Editorial_idEditorial = Editorial.idEditorial; ");
+        $this->db->query("SELECT idLibro,nombreLibro,categoriaLibro,autorLibro,cantidadLibro,detallesLibro,publicacionLibro,Editorial_idEditorial,nombreEditorial,estadoLibro FROM Libro INNER JOIN Editorial on Libro.Editorial_idEditorial = Editorial.idEditorial; ");
         $resultSet = $this->db->getAll();
         return $resultSet;
     }
@@ -39,6 +39,23 @@ class LibroModel{
         $this->db->bind(':publicacionLibro', $data['publicacionLibro']);
         $this->db->bind(':idEditorial', $data['idEditorial']);
         //verificamos la ejecucion correcta del query
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateEstado($data)
+    {
+        $this->db->query('UPDATE libro SET estadoLibro=:estadoLibro WHERE idLibro=:idLibro       
+        ');
+        //vinculacion de los datos
+        $this->db->bind(':idLibro', $data['idLibro']);
+        $this->db->bind(':estadoLibro', $data['estadoLibro']);
+
+        // ejecucion de la consulta
+
         if ($this->db->execute()) {
             return true;
         } else {
@@ -102,6 +119,13 @@ class LibroModel{
         return $resultSet;
     }
 
+    public function getOne($id)
+    {
+        $this->db->query("SELECT * FROM libro where idLibro =:id");
+        $this->db->bind(':id', $id);
+        $resultSet = $this->db->getOne();
+        return $resultSet;
+    }
     //buscar por apellido
     public function search($data)
     {

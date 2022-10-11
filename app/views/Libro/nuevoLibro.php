@@ -17,7 +17,7 @@
                                                         <h4 class="card-title"><?php echo $_SESSION['mensajeLibro']; ?></h4>
                                                         <? echo $_SESSION['mensajeLibro']=""; ?>
                                                         <h4 class="card-title">Registro de Libros</h4>
-                                                        <form class="form-sample" method="POST" action="<?php echo URLROOT; ?>Libro/addBook">
+                                                        <form class="form-sample" id="frmLibro">
                                                             <p class="card-description">
                                                                 Personal info
                                                             </p>
@@ -96,6 +96,7 @@
                                                                 <div class="col-md-6 d-flex justify-content-end mt-5">
                                                                     <div class="mb-3 mt-5">
                                                                         <button type="submit" class="btn btn-primary btn-lg text-white mb-0 mt-1 me-0"><i class="bi bi-send-fill"></i>Enviar Datos</button>
+                                                                        <a href="<?php echo URLROOT; ?>Libro" class="btn btn-danger btn-lg text-white mb-0 mt-1 me-0"><i class="bi bi-send-fill"></i>Cancelar</a>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -116,4 +117,5 @@
 
     <script src="<?php echo URLROOT; ?>public/css/sweetalert2.min.css"></script>
     <script src="<?php echo URLROOT; ?>public/js/sweetalert2.all.min.js"></script>
+    <script src="<?php echo URLROOT ?>js/nuevoLibro.js"></script>
     <?php require_once APPROOT . '/views/inc/footer.php'; ?>
