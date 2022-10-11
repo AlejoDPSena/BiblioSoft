@@ -45,7 +45,7 @@ $(document).ready(function () {
         data: null,
         defaultContent:
           // "<button type='button' class='btn btn-primary btn-sm shadow-sm' id='agregar'>Editar</button>",
-          "<button id='editar' class='badge badge-opacity-naranjamadera'>Editar</button>",
+          "<button id='editar' data-bs-toggle='modal' data-bs-target='#modalEditar' class='badge badge-opacity-naranjamadera'>Editar</button>",
       },
     ]
   });
@@ -78,6 +78,25 @@ function modalPrestamo(id, nombre) {
         </div>
         <div class="modal-footer">
         <a class="btn btn-primary" href="${URLROOT}Cliente/crearPrestamo/${id}" >Confirmar</a>
+          <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+        </div>      
+      `;
+  contenido.innerHTML = filas;
+}
+
+function modalEditar(id, nombre) {
+  let contenido = document.getElementById("contenidoEditarModal");
+  let filas = `
+  <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Actualizar</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+        <p>¿Desea hacer cambios al cliente ${nombre}?</p>
+
+        </div>
+        <div class="modal-footer">
+        <a class="btn btn-primary" href="${URLROOT}Cliente/editarCliente/${id}" >Confirmar</a>
           <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
         </div>      
       `;
